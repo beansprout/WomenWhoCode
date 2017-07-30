@@ -17,3 +17,10 @@ x_train /= 255
 x_test /= 255
 print("After scaling, the max value in the training set is", x_train.max())
 
+#RUNNING THIS PRODUCES THIS OUTPUT
+# Using TensorFlow backend.
+# The data starts with shape (60000, 28, 28) and (60000,)
+#THE 28, 28 TRANSFORMS TO FLATTENED ARRAY (784 PIXELS VS THE ORIGINIAL 28X28)
+# The data becomes shaped as (60000, 784) and (60000,)
+# The max value in the training set is 255
+# After scaling, the max value in the training set is 1.0

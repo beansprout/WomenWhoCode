@@ -27,8 +27,10 @@ y_test = keras.utils.to_categorical(y_test, 10)
 
 # Set the network architecture
 model = Sequential()
-model.add(Dense(16, activation='relu', input_shape=(784,)))
-model.add(Dense(16, activation='relu'))
+# RELU IS THE ACTIVATION FUNCTION
+model.add(Dense(18, activation='relu', input_shape=(784,)))
+model.add(Dense(18, activation='relu'))
+#SOFTMAX ACTIVATION FUNCTION ENFORCES CONSTRAINT - PROBAB. DISTRIBUTION
 model.add(Dense(10, activation='softmax'))
 
 model.summary()
@@ -47,3 +49,6 @@ history = model.fit(x_train, y_train,
 
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test accuracy:', score[1])
+
+# changed from 16 to 18 on layers 94%
+

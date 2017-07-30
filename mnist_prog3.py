@@ -27,8 +27,8 @@ y_test = keras.utils.to_categorical(y_test, 10)
 
 # Set the network architecture
 model = Sequential()
-model.add(Dense(16, activation='relu', input_shape=(784,)))
-model.add(Dense(16, activation='relu'))
+model.add(Dense(18, activation='relu', input_shape=(784,)))
+model.add(Dense(18, activation='relu'))
 model.add(Dense(10, activation='softmax'))
 
 model.summary()
@@ -41,13 +41,15 @@ model.compile(loss='categorical_crossentropy',
 # Train the network
 history = model.fit(x_train, y_train,
                     batch_size=128,
-                    epochs=4,
+                  #  epochs=4,
                     verbose=1,
                     validation_data=(x_test, y_test))
 
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test accuracy:', score[1])
 
+# takes test data, feeds through model, to see how well it can predict the test data.  
+# because by now it has been trained a bit
 y_pred = model.predict(x_test)
 print(y_test[0])
 print(y_pred[0])
